@@ -10,5 +10,16 @@ class MainActivity < Android::App::Activity
     @label.textSize = 80.0
     @label.gravity = Android::View::Gravity::CENTER_HORIZONTAL
     layout.addView(@label)
+
+    @button = Android::Widget::Button.new(self)
+    @button.text = 'Start'
+    @button.onClickListener = self
+    layout.addView(@button)
+
+    self.contentView = layout
+  end
+
+  def onClick(view)
+    puts "click"
   end
 end
